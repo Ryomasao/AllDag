@@ -24,3 +24,9 @@ Route::resource('dummyprojects', 'DummyProjectsController');
 Route::get('/statuses',function(){
     return App\Status::with('user')->latest()->get();
 });
+
+
+//AllDugのTopページを作成するよ！
+Route::get('/alldug',function(){
+    return view('alldug.index');
+});
