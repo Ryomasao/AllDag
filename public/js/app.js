@@ -19425,7 +19425,11 @@ new Vue({
     router: __WEBPACK_IMPORTED_MODULE_1__routes__["a" /* default */]
 });
 
-console.log("Im here");;
+new Vue({
+    el: '#alldug-app'
+});
+
+console.log("Im here");
 
 /***/ }),
 /* 130 */

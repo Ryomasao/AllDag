@@ -6,4 +6,10 @@ new Vue({
     router
 });
 
-console.log("Im here");;
+
+new Vue({
+    el:'#alldug-app'
+})
+
+
+console.log("Im here");

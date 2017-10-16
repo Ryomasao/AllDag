@@ -28,5 +28,5 @@ Route::get('/statuses',function(){
 
 //AllDugのTopページを作成するよ！
 Route::get('/alldug',function(){
-    return view('alldug.index');
+    return view('alldug.app');
 });
