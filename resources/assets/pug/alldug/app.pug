@@ -2,14 +2,24 @@ extends layout
 block title
     title AllDug
 block content
-    div#alldug-app
-        .container
-            section.tabs
-                input#tab1(type="radio" name="radio-set" checked)
-                label.tab-label-1 Tab1
-                input#tab2(type="radio" name="radio-set")
-                label.tab-label-2 Tab2
-                input#tab3(type="radio" name="radio-set")
-                label.tab-label-3 Tab3
-                input#tab4(type="radio" name="radio-set")
-                label.tab-label-4 Tab4
+    #alldug-app.flexbox
+        section.main 
+            .container
+                h1 Main
+                //写真にコメントをつけれる感じでいこうかな
+                .dugs
+                    .dug
+                        .day 2017/10/16(月)
+                        .weather 今日は雨んきー
+                        .images
+                            p 07:00
+                            img(src="https://placehold.jp/480x360.png" width="480px" height="360px")
+                            p 19:00
+                            img(src="https://placehold.jp/480x360.png" width="480px" height="360px")
+                            p 22:00
+                            img(src="https://placehold.jp/480x360.png" width="480px" height="360px")
+                        button comment
+
+        section.side
+            h1 Side
+            p side
