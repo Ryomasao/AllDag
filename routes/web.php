@@ -30,3 +30,8 @@ Route::get('/statuses',function(){
 Route::get('/alldug',function(){
     return view('alldug.app');
 });
+
+
+Auth::routes();
+Route::get('/home', 'HomeController@index')->name('home');
+
