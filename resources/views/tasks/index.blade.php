@@ -10,24 +10,14 @@
         <title>My App</title>
     </head>
     <body>
-            <div id="app">
-                @include('layouts.header')
-                <section class="section">
-                    <div class="container">
-                        <router-view></router-view>
-                    </div>
-                </section>
-
-            </div>
-
             <div>
                 <ul>
                     @foreach ($tasks as $task)
-                        <li>{{ $task }}</li>
+                        <li>
+                        <a href="/tasks/{{ $task->id}}"> {{ $task->body }} </a>
+                        </li>
                     @endforeach
                 </ul> 
             </div>
-
-            <script src="/js/app.js"></script>
     </body>
 </html>
