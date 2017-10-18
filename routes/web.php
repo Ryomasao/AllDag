@@ -56,6 +56,11 @@ Route::get('/posts/{post}','PostsController@show');
 //post/createがなんとなくpostするURLな気もするんだけれども違うんだね
 Route::post('/posts','PostsController@store');
 
+//commentをできるようにするよ
+Route::post('/posts/{post}/comments','CommentsController@store');
+
+
+
 /* 
 今更だけど、
 controller : PostsController 単数
