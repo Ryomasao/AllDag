@@ -19,7 +19,7 @@ class RedirectIfAuthenticated
     {
         error_log("are?");
         if (Auth::guard($guard)->check()) {
-            return redirect('/home');
+            return redirect('/posts');
         }
 
         //https://qiita.com/nunulk/items/2c637d3952096ef74677#3-middleware-%E3%81%A8-controller-%E3%81%AE%E9%96%A2%E4%BF%82

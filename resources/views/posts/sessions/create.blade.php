@@ -2,25 +2,19 @@
 
 
 @section('content') 
-    <h1> place  create the post</h1>
+    <h1>SingIn</h1>
 
     <hr>
 
     <!--formに関して言えば、method actionが一番大事な気がする -->
-    <form method="POST" action="/posts">
+    <form method="POST" action="/posts/login">
         {{ csrf_field() }}
-        <div class="form-gruop">
-            <label for="title">Title</label>
-            <input type="text" class="form-control" id="title" name="title">
-
-        </div>
-
-        <div class="form-gruop">
-            <label for="body">Body</label>
-            <textarea id="body" name="body"></textarea>
-        </div>
-
-        <button type="submit">Publish</button>
+        <label for="email">email</label>
+        <input name="email" type="email">
+        <label for="password">password</label>
+        <input name="password" type="password">
+        <br/>
+        <button type="submit">login</button>
     </form>
 
     @if(count($errors))

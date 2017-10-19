@@ -5,10 +5,43 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Post;
+use App\User;
 
 class PostsController extends Controller
 {
-    //
+
+    public function __construct(){
+
+        error_log("PostController is generated");
+
+        /*
+        Contoroller生成時にauthを実行する。
+        authは、以下の
+        c:\Users\yamauchi.ryoji\vagrant\centos\share\vue-app\vendor\laravel\framework\src\Illuminate\Auth\Middleware\Authenticate.php
+        handleメソッドを実行してる。
+
+        handleメソッドでやってることがいまいちわからない。
+
+        認証されていないと、なんやかんやで以下のunauthみたいなメソッドが実行されてリダイレクトされる。
+        リダイレクト先はハードコーディングされてた。
+        変更したい場合はどうするんだろう。
+
+        c:\Users\yamauchi.ryoji\vagrant\centos\share\vue-app\vendor\laravel\framework\src\Illuminate\Foundation\Exceptions\Handler.php
+        */
+
+        //$this->middleware('auth');
+
+        /*
+        このままだと、PostContoroller配下の処理すべてについて認証が必要になる。（と思う。）
+        posts/1 とか、ログインなしで参照したいものもあったりするじゃないですか。
+        そういうときは、exceptが使える。
+          
+         */
+
+        $this->middleware('auth')->except(['index','show']);
+
+    }
+
     public function index()
     {
 
@@ -90,7 +123,25 @@ class PostsController extends Controller
         ]);
 
         //ちょっとまって！マスアサインメントしたから？こうかけるかも
-        Post::create(request(['title', 'body']));
+        //Post::create(request(['title', 'body']));
+
+        //最終的にuser_idを設定することになったのでこうなった
+
+
+        /*
+        Post::create([
+            'title' => request('title'),
+            'body'  => request('body'),
+            'user_id' => auth()->id(),
+        ]);
+        */
+
+        //さらにこうなった。
+        auth()->user()->publish(
+            new Post(request(['title', 'body']))
+        );
+        
+
 
         return redirect('posts');
 

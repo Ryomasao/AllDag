@@ -26,4 +26,18 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function post()
+    {
+        return $this->hasMany(Post::class);
+    }
+
+
+    public function publish(Post $post)
+    {
+        //Userクラスは、hasmanyの関係で、配下のPOSTオブジェクトを作成することができる？
+        //post()クラスにsaveなんてないけれども、これは、create([])のモデルもらう版なのかもしれない。
+        $this->post()->save($post);
+
+    }
 }

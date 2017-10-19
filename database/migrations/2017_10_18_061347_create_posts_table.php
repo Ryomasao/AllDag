@@ -20,6 +20,7 @@ class CreatePostsTable extends Migration
             $table->string('title');
             $table->text('body');
             $table->dateTime('expire_date')->nullable();
+            $table->integer('user_id');
             $table->timestamps();
         });
     }

@@ -33,9 +33,6 @@ Route::get('/alldug',function(){
 });
 
 
-Auth::routes();
-Route::get('/home', 'HomeController@index')->name('home');
-
 //routerがものっそい長くなるので、コントローラを作ろう
 Route::get('/tasks','TaskController@index');
 
@@ -47,9 +44,18 @@ Route::get('/tasks/{task}','TaskController@show');
 //新たにpostパターンをやる
 Route::get('/posts','PostsController@index');
 
+//Auth機能をつくろう
+Route::get('/posts/register','RegistrationController@create');
+Route::post('/posts/register','RegistrationController@store');
+
+Route::get('/posts/login','SessionController@create')->name('login');
+Route::post('/posts/login','SessionController@store');
+
+Route::get('/posts/logout','SessionController@destroy');
+
 
 //こういうルーティングの場合どうすんだろ。逆になると、createもshowになっちゃうよ。
-Route::get('/posts/create','PostsController@create');
+Route::get('/posts/create','PostsController@create')->name('home');
 Route::get('/posts/{post}','PostsController@show');
 
 
@@ -58,6 +64,13 @@ Route::post('/posts','PostsController@store');
 
 //commentをできるようにするよ
 Route::post('/posts/{post}/comments','CommentsController@store');
+
+
+Auth::routes();
+Route::get('/home', 'HomeController@index')->name('home');
+
+
+
 
 
 
