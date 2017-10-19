@@ -4,11 +4,12 @@
 @section('content') 
     <h1>やあ、ここはいろんなアクションができるページだよ</h1>
     <ul>
-        <li><a href="/create">記事を投稿する</a></li>
+        <li><a href="/posts/create">記事を投稿する</a></li>
         <li><a href="">新規にユーザーを作成する</a></li>
-        <li><a href="/logout">ログアウト</a></li>
+        <li><a href="/posts/logout">ログアウト</a></li>
     </ul>
 
+    <hr>
     <h1>投稿したデータ一覧はこんな感じ</h1>
     
     <ul>
@@ -22,6 +23,17 @@
                 <span>{{$post->body.":"}}</span>
                 <span>{{$post->user->name }}</span>
                 <span>{{$post->created_at->toFormattedDateString() }}</span>
+            </li>
+        @endforeach
+    </ul>
+
+    <hr>
+
+    <h1>カテゴリ別だよ</h1>
+    <ul>
+        @foreach ($archives as $stats)
+            <li>
+                <a href="/posts?month={{$stats['month']}}&year={{$stats['year']}} ">{{ $stats['year'].":".$stats['month'] }}</a>
             </li>
         @endforeach
     </ul>

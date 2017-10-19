@@ -7,6 +7,9 @@ use Illuminate\Http\Request;
 use App\Post;
 use App\User;
 
+//日付の変換 march => 3
+use carbon\carbon;
+
 class PostsController extends Controller
 {
 
@@ -52,10 +55,45 @@ class PostsController extends Controller
         //$posts = Post::all();
 
         //getが必要かどうかってまだよくわかんないや。少なくともlatestだけじゃだめ。
-        $posts = Post::latest()->get();
+        //latestって最新じゃなくって降順で全部取得だっけ？
+        //$posts = Post::latest()->get();
 
 
-        return view('posts.index',compact('posts'));
+
+        //以下の絞り込みがfilter機能によってなんかできるみたい
+        //下のほうにscopeFilterっているからみてみ
+        //filterなんかねえよ！っていわれる。。。
+        
+        //ごめん、scopeFilterを定義する場所はPostモデルの方だった。
+        $posts = Post::latest()->filter(request(['month','year']))->get();
+
+        //dd($posts);
+        /*
+        $posts = Post::latest();
+
+
+        //カテゴリをしぼるみたい
+        
+        if ($month = request('month')){
+            $posts->whereMonth('created_at', Carbon::parse($month)->month);
+        }
+
+        if ($year = request('year')){
+            $posts->whereYear('created_at', $year);
+        }
+
+        $posts = $posts->get();
+
+        */
+
+        //これやる場合、database.phpのmysqlのstrictをfalseにする必要がある。
+        $archives = Post::selectRaw('year(created_at) year ,monthname(created_at) month,day(created_at) day,count(*) published')
+        ->groupBy('year','month')
+        ->orderbyRaw('min(created_at) desc')
+        ->get()
+        ->toArray();
+
+        return view('posts.index',compact('posts','archives'));
     }
 
     public function show(Post $post)
@@ -141,14 +179,9 @@ class PostsController extends Controller
             new Post(request(['title', 'body']))
         );
         
-
-
         return redirect('posts');
-
-
-
-
-
-
     }
+
+
+
 }

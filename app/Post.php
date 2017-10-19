@@ -3,6 +3,8 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+//日付の変換 march => 3
+use carbon\carbon;
 
 class Post extends Model
 {
@@ -43,9 +45,20 @@ class Post extends Model
         //あとuser_idがないとレコードつくれない。
         //$this->comments()->create(compact('body'));
 
-    
+    }
 
+    //filterで勝手に使われるメソッド
+    //第二引数ががfilter(request([]))のリクエスト部分らしい
+    public function scopeFilter($query, $filters)
+    {
 
+        if ($month = $filters['month']){
+            $query->whereMonth('created_at', Carbon::parse($month)->month);
+        }
+
+        if ($year = $filters['year']){
+            $query->whereYear('created_at', $year);
+        }
 
     }
 }
