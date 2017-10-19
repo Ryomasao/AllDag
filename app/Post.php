@@ -61,4 +61,14 @@ class Post extends Model
         }
 
     }
+
+    public static function archives()
+    {
+        return static::selectRaw('year(created_at) year ,monthname(created_at) month,day(created_at) day,count(*) published')
+        ->groupBy('year','month')
+        ->orderbyRaw('min(created_at) desc')
+        ->get()
+        ->toArray();
+
+    }
 }

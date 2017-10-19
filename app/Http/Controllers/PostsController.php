@@ -65,7 +65,13 @@ class PostsController extends Controller
         //filterなんかねえよ！っていわれる。。。
         
         //ごめん、scopeFilterを定義する場所はPostモデルの方だった。
-        $posts = Post::latest()->filter(request(['month','year']))->get();
+
+        if(request(['month','year'])){
+            $posts = Post::latest()->filter(request(['month','year']))->get();
+        }else{
+            $posts = Post::latest()->get();
+        }
+
 
         //dd($posts);
         /*
@@ -87,13 +93,25 @@ class PostsController extends Controller
         */
 
         //これやる場合、database.phpのmysqlのstrictをfalseにする必要がある。
+        /*
         $archives = Post::selectRaw('year(created_at) year ,monthname(created_at) month,day(created_at) day,count(*) published')
         ->groupBy('year','month')
         ->orderbyRaw('min(created_at) desc')
         ->get()
         ->toArray();
+        */
 
-        return view('posts.index',compact('posts','archives'));
+        //リファクタリング
+        $archives = Post::archives();
+
+        //return view('posts.index',compact('posts','archives'));
+
+        //かなり謎。AppServieProviderに、View::composer('posts.archivies',functuon~)てきなことを書いた。
+        //やってることはarchives.balde.phpに値を紐付けているっぽい。
+
+        //view composerっていう記事がある。
+        //https://qiita.com/youkyll/items/c65af61eb33919b29e97
+        return view('posts.index')->with('posts',$posts);
     }
 
     public function show(Post $post)

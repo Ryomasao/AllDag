@@ -15,7 +15,9 @@
 
         <div class="container">
             @yield('content')
+            @include("posts/archives")
         </div>
+
 
     </body>
 </html>
