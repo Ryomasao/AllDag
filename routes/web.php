@@ -42,7 +42,7 @@ Route::get('/tasks/{task}','TaskController@show');
 
 
 //新たにpostパターンをやる
-Route::get('/posts','PostsController@index');
+Route::get('/posts','PostsController@index')->name('home');
 
 //Auth機能をつくろう
 Route::get('/posts/register','RegistrationController@create');
@@ -54,8 +54,9 @@ Route::post('/posts/login','SessionController@store');
 Route::get('/posts/logout','SessionController@destroy');
 
 
+
 //こういうルーティングの場合どうすんだろ。逆になると、createもshowになっちゃうよ。
-Route::get('/posts/create','PostsController@create')->name('home');
+Route::get('/posts/create','PostsController@create');
 Route::get('/posts/{post}','PostsController@show');
 
 
@@ -69,7 +70,20 @@ Route::post('/posts/{post}/comments','CommentsController@store');
 //Auth::routes();
 //Route::get('/home', 'HomeController@index')->name('home');
 
+//ユーザーを管理するURI
+Route::get('/posts/admin/users','UserController@index');
 
+/*一覧画面から直接編集画面を開く場合って、
+以下のようにeditを用意すると、users/1/とかにアクセスした場合も考慮しなきゃいけない
+*/
+//Route::get('/posts/admin/users/{user}/edit','UserController@edit');
+
+Route::get('/posts/admin/users/create','UserController@create');
+Route::post('/posts/admin/users','UserController@store');
+
+Route::get('/posts/admin/users/{user}','UserController@edit');
+Route::patch('/posts/admin/users/{user}','UserController@update');
+Route::delete('/posts/admin/users/{user}','UserController@destroy');
 
 
 
