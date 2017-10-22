@@ -86,6 +86,19 @@ Route::patch('/posts/admin/users/{user}','UserController@update');
 Route::delete('/posts/admin/users/{user}','UserController@destroy');
 
 
+//adminだけが見れるページ
+
+/*
+Route::group( ['middleware' => ['auth', 'can:admin']], function(){
+    Route::get('/posts/admin/admin',function(){
+        return 'Only Amin Page';
+    });
+} );
+*/
+
+Route::group( ['middleware' => ['auth', 'can:admin']], function(){
+    Route::get('posts/admin/admin', 'SecretController@index');
+});
 
 
 /* 

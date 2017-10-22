@@ -2,6 +2,7 @@
 
 @section('content') 
     <h1>やあ、ここは登録されているユーザーをすべて表示するよ</h1>
+    <h1><a href="/posts">戻る</a></h1>
         @foreach($users as $user)
             <li >
                 <a href="/posts/admin/users/{{ $user->id }}">

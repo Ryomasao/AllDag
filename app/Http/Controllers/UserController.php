@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Http\Requests\UserRequest;
 
 class UserController extends Controller
 {
@@ -43,8 +44,11 @@ class UserController extends Controller
     /**
      * ユーザーを新規に登録します。
      */
-    public function store(Request $request)
+    public function store()
     {
+
+
+        error_log("store");
 
         $this->validate(request(),[
             'name' => 'required',
@@ -75,13 +79,15 @@ class UserController extends Controller
     /**
      * ユーザーの情報を更新するための情報を表示します。
      */
-    public function update(Request $request, User $user)
+    public function update(UserRequest $request, User $user)
     {
 
+        /*
         $request->validate([
             'email' => 'required|string|email|max:255|',
             'role' => 'required',
         ]);
+        */
 
         $user->email =$request->email;
         $user->role =$request->role;

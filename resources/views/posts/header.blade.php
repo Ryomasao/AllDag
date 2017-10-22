@@ -4,6 +4,7 @@
     @if(Auth::check())
     <span>now you login:</span>
     <span>{{ Auth::user()->name }}</span>
+    <span>{{ Auth::user()->role }}</span>
     @endif
 </div>
 

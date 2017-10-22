@@ -11,8 +11,17 @@
     <ul>
         @if(Auth::Check())
             <li><a href="/posts/create">記事を投稿する</a></li>
-            <li><a href="/posts/admin/users">ユーザーを管理する</a></li>
             <li><a href="/posts/logout">ログアウト</a></li>
+            @can('admin')
+            <li><a href="/posts/admin/users">ユーザーを管理する</a></li>
+            <li><a href="/posts/admin/admin">アドミンユーザーのみ実行できるよ</a></li>
+            @endcan
+            @can('operator')
+            <li>operatorのみ表示</li>
+            @endcan
+            @can('user')
+            <li>userのみ表示</li>
+            @endcan
         @else
             <li><a href="/posts/login">ログイン</a></li>
         @endif
