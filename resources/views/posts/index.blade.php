@@ -15,6 +15,7 @@
             @can('admin')
             <li><a href="/posts/admin/users">ユーザーを管理する</a></li>
             <li><a href="/posts/admin/admin">アドミンユーザーのみ実行できるよ</a></li>
+            <li><a href="/posts/admin/items">ファイルをアップロードする</a></li>
             @endcan
             @can('operator')
             <li>operatorのみ表示</li>

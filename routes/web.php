@@ -86,6 +86,9 @@ Route::patch('/posts/admin/users/{user}','UserController@update');
 Route::delete('/posts/admin/users/{user}','UserController@destroy');
 
 
+Route::get('/posts/admin/items','ItemController@index');
+Route::post('/posts/admin/items/upload','ItemController@store');
+
 //adminだけが見れるページ
 
 /*
