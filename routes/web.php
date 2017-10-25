@@ -86,8 +86,19 @@ Route::patch('/posts/admin/users/{user}','UserController@update');
 Route::delete('/posts/admin/users/{user}','UserController@destroy');
 
 
+//uploadを試してみよう　
 Route::get('/posts/admin/items','ItemController@index');
 Route::post('/posts/admin/items/upload','ItemController@store');
+
+
+//ServiceProviderを試してみよう
+use App\myclass\Messenger\Messenger;
+Route::get('send_message/{message}', function(Messenger $messenger, $message){
+    return $messenger->sendMessage($message);
+});
+
+Route::get('/human', 'DITest\ScheduleController@view');
+
 
 //adminだけが見れるページ
 
