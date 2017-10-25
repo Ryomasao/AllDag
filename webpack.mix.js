@@ -23,7 +23,7 @@ laravel-mix-pugがどうやって、やってんのかよくわからん。
 */
 
 mix.js('resources/assets/js/app.js', 'public/js')
-   .sass('resources/assets/sass/app.scss', 'public/css')
+   .sass('resources/assets/sass/sample/sample.scss', 'public/css')
    .webpackConfig({
        module:{
            rules:[{
@@ -32,5 +32,5 @@ mix.js('resources/assets/js/app.js', 'public/js')
            }]
        }
    })
-mix.pug('resources/assets/pug/alldug/app.pug', 'resources/views/alldug',{})
+mix.pug('resources/assets/pug/sample/app.pug', 'resources/views/sidebar_blade',{})
 

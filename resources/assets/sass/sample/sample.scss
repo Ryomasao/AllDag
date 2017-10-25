@@ -1,0 +1,34 @@
+@import "~normalize.css";
+
+
+$background:#FDFFF2;
+$text:#23001E;
+$subcolor:#20A39E;
+$head:#EF5B5B;
+$other:#FFBA49;
+
+//flexにするだけで横並びに！
+#main{
+    display: flex;
+}
+
+
+.sidebar{
+    height: 100%;
+    background: $subcolor;
+    color:$text;
+
+    a{
+        text-decoration: none;
+
+        nav{
+            ul{
+                li{
+
+                }
+            }
+        }
+    }
+}
+
+

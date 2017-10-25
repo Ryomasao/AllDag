@@ -97,7 +97,13 @@ Route::get('send_message/{message}', function(Messenger $messenger, $message){
     return $messenger->sendMessage($message);
 });
 
+//DIを個別でやった
 Route::get('/human', 'DITest\ScheduleController@view');
+
+//pugでやるのかvueでやるのか、bladeでやるのか
+Route::get('/sidebar_blade', function(){
+    return view('sidebar_blade/app');
+});
 
 
 //adminだけが見れるページ
