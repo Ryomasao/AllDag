@@ -23,7 +23,7 @@ class ItemController extends Controller
      */
     public function store(Request $request){
         
-        if($request-hasFile('up_file')){
+        if($request->hasFile('up_file')){
             //これだけで、app/storage配下のfilesフォルダに、適当な名前で保存される。
             $path = $request->file('up_file')->store('files');
             //保存名をかえたい場合は、公式ドキュメントをみてくれい
