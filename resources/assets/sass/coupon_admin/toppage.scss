@@ -1,0 +1,47 @@
+
+@import "./variables";
+@import "./components/layout";
+@import "./components/_sidemenu";
+@import "./components/_contentHeader";
+
+.pageContent{
+    width: 100%;
+}
+
+
+.mainContent{
+    display: flex;
+    width: 100%;
+
+    .fileUpload{
+        width: 90%;
+        margin:0 auto;
+        border: 3px solid $borderColor;
+
+        .title{
+            font-size: 20px;
+            font-weight: bold;
+            border-bottom: 3px solid $borderColor;
+            padding: 20px 5px;
+
+            
+        }
+
+        .dropArea{
+            width: 80%;
+            margin: 20px auto;                
+            border: 2px dashed $borderColor;
+            text-align: center;
+            padding: 100px 0;
+            color:$borderColor;
+        }
+
+        .submitArea{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+    }
+}
+

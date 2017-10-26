@@ -1,5 +1,3 @@
 {
-    "/js/app.js": "/js/app.js",
-    "/css/sample.css": "/css/sample.css",
-    "/resources/views/sidebar_blade/app.blade.php": "/resources/views/sidebar_blade/app.blade.php"
+    "/css/sample.css": "/css/sample.css"
 }

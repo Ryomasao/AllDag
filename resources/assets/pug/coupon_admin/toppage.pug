@@ -1,0 +1,22 @@
+//- トップページ画面
+extends ./template/_layout.pug
+
+block contents
+    //- 設定ファイル読み込み
+    //include ./config/mockup/toppage.pug
+    
+    // コンテンツヘッダー
+    include ./components/_contentHeader.pug
+    //+contentHeader('upload')
+    
+    //- メインコンテンツ要素: Block
+    .mainContent 
+        .fileUpload
+            .title ファイルアップロード
+            .dropArea
+                img(src="https://placehold.jp/100x100.png")
+                p ドラッグ&ドロップでファイルをアップロード
+            form.submitArea(type="post" action="")
+                label ファイルアップロード
+                input(type="text" name="filePath") 
+                button 選択

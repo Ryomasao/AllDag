@@ -1,0 +1,22 @@
+.header{
+    width: 100%;
+    height: $headerHeight;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+
+    .title{
+        padding-left: 10px;
+        font-weight: bold;
+    }
+
+    .logout{
+        //ログアウトは右寄せにする
+        margin-left:auto;
+        font-size:15px;
+        a{
+            text-decoration: none;
+        }
+    }
+}
+

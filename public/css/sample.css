@@ -487,10 +487,15 @@ template {
   display: none;
 }
 
+.header {
+  background: #EF5B5B;
+}
+
 #main {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  background: #FDFFF2;
 }
 
 .sidebar {
@@ -499,7 +504,23 @@ template {
   color: #23001E;
 }
 
-.sidebar a {
+.sidebar .sidebar-trigger {
+  color: red;
+}
+
+.sidebar .sidebar-trigger span {
+  background-color: #fff;
+  height: 4px;
+  width: 100%;
+  border-radius: 4px;
+}
+
+.sidebar .sidebar-menu ul li {
+  list-style-type: none;
+}
+
+.sidebar .sidebar-menu ul li a {
   text-decoration: none;
+  color: #23001E;
 }
 

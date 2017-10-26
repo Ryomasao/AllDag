@@ -1,0 +1,15 @@
+doctype html
+html
+    include ../components/_head.pug
+    //del
+    //include ../script/_config.pug
+    body
+        //サイドメニューとメインコンテンツの2カラムレイアウト
+        .root
+            include ../components/_sidemenu.pug
+            main.pageContent
+             block contents
+            //del
+            //script(src="/js/manifest.js")
+            //script(src="/js/vendor.js")
+            //script(src="/js/toppage.js")
