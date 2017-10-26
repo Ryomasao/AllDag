@@ -105,6 +105,11 @@ Route::get('/sidebar_blade', function(){
     return view('sidebar_blade/app');
 });
 
+//coupon_admin
+Route::get('/coupon_admin', function(){
+    return view('coupon_admin/toppage');
+});
+
 
 //adminだけが見れるページ
 

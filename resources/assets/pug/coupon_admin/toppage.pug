@@ -2,21 +2,24 @@
 extends ./template/_layout.pug
 
 block contents
-    //- 設定ファイル読み込み
-    //include ./config/mockup/toppage.pug
+    //- 設定ファイル読み込み なぞだ
+    //include ./config/mockup/_toppage.pug
     
     // コンテンツヘッダー
     include ./components/_contentHeader.pug
-    //+contentHeader('upload')
-    
+    //+contentHeader('upload') 
     //- メインコンテンツ要素: Block
     .mainContent 
         .fileUpload
             .title ファイルアップロード
-            .dropArea
-                img(src="https://placehold.jp/100x100.png")
-                p ドラッグ&ドロップでファイルをアップロード
-            form.submitArea(type="post" action="")
-                label ファイルアップロード
-                input(type="text" name="filePath") 
-                button 選択
+            form(method="post" action="/posts/admin/items/upload" enctype="multipart/form-data")
+                -var csrf = "{{ csrf_field() }}"
+                span #{csrf}
+                .dropArea
+                    img(src="https://placehold.jp/100x100.png")
+                    p ドラッグ&ドロップでファイルをアップロード
+                .submitArea
+                    label ファイルアップロード
+                    input(type="file" name="up_file")#fileInput
+                    button.square_btn 送信
+    script(src='js/toppage_pure.js')

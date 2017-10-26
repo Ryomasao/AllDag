@@ -35,5 +35,17 @@ mix.js('resources/assets/js/app.js', 'public/js')
    })
 mix.pug('resources/assets/pug/sample/app.pug', 'resources/views/sidebar_blade',{})
 */
-mix.sass('resources/assets/sass/sample/sample.scss', 'public/css');
+//mix.sass('resources/assets/sass/sample/sample.scss', 'public/css');
+
+mix.js('resources/assets/js/app.js', 'public/js')
+   .sass('resources/assets/sass/coupon_admin/toppage.scss', 'public/css')
+   .webpackConfig({
+       module:{
+           rules:[{
+               test:/\.pug$/,
+               loader:'pug-yes'
+           }]
+       }
+   })
+mix.pug('resources/assets/pug/coupon_admin/toppage.pug', 'resources/views/coupon_admin',{})
 

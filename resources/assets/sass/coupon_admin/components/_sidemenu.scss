@@ -38,4 +38,56 @@
         bottom:0;
        }
    }
+
+   .sidebar-trigger.active{
+        span{
+         background-color: #fff;
+        }
+    }
+
+   //普段は隠れている
+   .sidebar-menu{
+        transition: all .2s;
+        background: $sideMenuColor;
+        min-width:250px;
+        left:-250px;
+        height: 100%;
+        position: absolute;
+        color:white;
+       ul{
+           padding-left: 0;
+           margin-top: 0;
+           border-top:1px solid #f1f6fc;
+           li{
+               list-style-type: none;
+               border-bottom:1px solid #f1f6fc;
+               padding:15px 10px;
+               border-left:8px solid gray;
+
+               &:hover{
+               border-left:8px solid gray;
+               }
+
+               a{
+                   display: block;
+                   width: 150px;
+                   text-decoration: none;
+                   color:white;
+               }
+           }
+       }
+   }
+}
+
+.sidebar-menu.active{
+    transform: translateX(250px);
+}
+
+.sidebar.active{
+    width: 322px;
+    background: $sideMenuColor;
+}
+
+.maincontent{
+    transition: all .2s;
 }
