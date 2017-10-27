@@ -4,45 +4,68 @@
 @import "./components/_icon";
 @import "./components/_sidemenu";
 @import "./components/_contentHeader";
+@import "~normalize.css";
 
 .pageContent{
     width: 100%;
 }
 
-
 .mainContent{
-    display: flex;
     width: 100%;
+    min-width: 600px;
+}
 
-    .fileUpload{
-        width: 90%;
-        margin:0 auto;
-        border: 3px solid $borderColor;
+.fileUpload{
+    width: 90%;
+    margin:0 auto;
+    border: 2px solid $borderColor;
 
-        .title{
-            font-size: 20px;
-            font-weight: bold;
-            border-bottom: 3px solid $borderColor;
-            padding: 20px 5px;
+    &-title{
+        width: 100%; 
+        border-bottom: 2px solid $borderColor;
+        font-weight: bold;
 
-            
+        p{
+            padding-left: 3px;
+        }
+    }
+    
+    &-dropArea{
+        width: 80%;
+        margin: 15px auto;                
+        border: 2px dashed $borderColor;
+        text-align: center;
+        padding: 20px 0;
+        color:$borderColor;
+    }
+
+    &-submitArea{
+        width:100%;
+        margin: 0px auto 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        span{
+            margin-right: 10px;
         }
 
-        .dropArea{
-            width: 80%;
-            margin: 20px auto;                
-            border: 2px dashed $borderColor;
-            text-align: center;
-            padding: 100px 0;
-            color:$borderColor;
+        input{
+            margin-right: 10px;
+            height: 20px;
+            border: 1px solid $borderColor;
+            border-radius: 3px;
         }
 
-        .submitArea{
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            margin-bottom: 30px;
+        //input fileは非表示にして、labelで操作する。
+        label{
+            margin-right: 10px;
+            #fileInput{
+                display: none;
+            }    
         }
     }
 }
+
+
 

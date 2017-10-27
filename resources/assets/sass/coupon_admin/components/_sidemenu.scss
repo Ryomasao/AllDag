@@ -40,8 +40,9 @@
    }
 
    .sidebar-trigger.active{
+    //一旦色は黒のままで
         span{
-         background-color: #fff;
+         background-color: black;
         }
     }
 
@@ -62,10 +63,10 @@
                list-style-type: none;
                border-bottom:1px solid #f1f6fc;
                padding:15px 10px;
-               border-left:8px solid gray;
+               border-left:8px solid $sideMenuColor;
 
                &:hover{
-               border-left:8px solid gray;
+               border-left:8px solid $menuSelectedColor;
                }
 
                a{
@@ -85,7 +86,7 @@
 
 .sidebar.active{
     width: 322px;
-    background: $sideMenuColor;
+    //background: $sideMenuColor;
 }
 
 .maincontent{

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class ItemController extends Controller
 {
@@ -22,11 +23,14 @@ class ItemController extends Controller
      * @link https://readouble.com/laravel/5.5/ja/filesystem.html
      */
     public function store(Request $request){
-        
+        Log::debug("upload");
         if($request->hasFile('up_file')){
             //これだけで、app/storage配下のfilesフォルダに、適当な名前で保存される。
             $path = $request->file('up_file')->store('files');
             //保存名をかえたい場合は、公式ドキュメントをみてくれい
+            Log::debug("uploaded");
+        }else{
+            Log::debug("nothing File");
         }
         
     }

@@ -14,6 +14,13 @@ dropArea[0].addEventListener('dragleave', function(evt){
 dropArea[0].addEventListener('drop', function(evt){
     evt.preventDefault();
     var files = evt.dataTransfer.files;
-    //console.log(files);
+    console.log(files);
     fileInput.files = files;
 })
+
+var path = document.getElementsByClassName('submitPath');
+
+fileInput.onchange = function(){
+    console.log(this.files[0].name);
+    path[0].value = this.files[0].name;
+}
