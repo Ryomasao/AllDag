@@ -10,16 +10,22 @@ block contents
     //+contentHeader('upload') 
     //- メインコンテンツ要素: Block
     .mainContent 
-        .fileUpload
-            .title ファイルアップロード
-            form(method="post" action="/posts/admin/items/upload" enctype="multipart/form-data")
-                -var csrf = "{{ csrf_field() }}"
-                span #{csrf}
-                .dropArea
+
+        //- ファイルアップロード: Block
+        form.fileUpload(method="post" action="/posts/admin/items/upload" enctype="multipart/form-data")
+            -var csrf = "{{ csrf_field() }}"
+            span #{csrf}
+            .fileUpload-title
+                p ファイルアップロード
+            .fileUpload-dropArea(v-on:dragleave.prevent v-on:dragover.prevent v-on:drop.prevent="onDrop")
+                div(v-if = "!file")
                     img(src="https://placehold.jp/100x100.png")
                     p ドラッグ&ドロップでファイルをアップロード
-                .submitArea
-                    label ファイルアップロード
-                    input(type="file" name="up_file")#fileInput
-                    button.square_btn 送信
-    script(src='js/toppage_pure.js')
+                div(v-else)
+                    p 送信ボタンを押す
+            .fileUpload-submitArea
+                span ファイルアップロード
+                input(type="text" readonly="disable" v-bind:value="fileName")
+                label.square_btn 選択
+                    input(type="file" name="up_file" v-on:change="onChange")#fileInput
+                button.square_btn 送信

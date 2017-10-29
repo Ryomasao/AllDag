@@ -13,9 +13,15 @@
     .logout{
         //ログアウトは右寄せにする
         margin-left:auto;
-        font-size:15px;
-        a{
-            text-decoration: none;
+        margin-right: 30px;
+        font-weight: bold;
+        font-size:10px;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        color:black;
+        span{
+            margin-left: 1px;
         }
     }
 }
