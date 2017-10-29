@@ -40,15 +40,12 @@
    }
 
    .sidebar-trigger.active{
-        span{
-         background-color: #fff;
-        }
+        transform: translateX(250px);
     }
 
    //普段は隠れている
    .sidebar-menu{
         transition: all .2s;
-        background: $sideMenuColor;
         min-width:250px;
         left:-250px;
         height: 100%;

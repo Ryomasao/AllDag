@@ -124,14 +124,14 @@ and open the template in the editor.
   bottom: 0;
 }
 
-.sidebar .sidebar-trigger.active span {
-  background-color: #fff;
+.sidebar .sidebar-trigger.active {
+  -webkit-transform: translateX(250px);
+          transform: translateX(250px);
 }
 
 .sidebar .sidebar-menu {
   -webkit-transition: all .2s;
   transition: all .2s;
-  background: #3c4959;
   min-width: 250px;
   left: -250px;
   height: 100%;
