@@ -110,6 +110,18 @@ Route::get('/coupon_admin', function(){
     return view('coupon_admin/toppage');
 });
 
+//ブログ用 form_sample
+Route::get('/form_sample', 'FormController@index');
+Route::post('/form_sample', 'FormController@store');
+
+//Laravel入門用
+//ViewComposer(ServiceProvider)
+use App\Http\Middleware\HelloMiddleware;
+
+Route::get('/hello', 'HelloController@index')->middleware(HelloMiddleware::class);
+
+
+
 
 //adminだけが見れるページ
 

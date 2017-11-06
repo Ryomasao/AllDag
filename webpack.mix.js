@@ -38,7 +38,10 @@ mix.pug('resources/assets/pug/sample/app.pug', 'resources/views/sidebar_blade',{
 //mix.sass('resources/assets/sass/sample/sample.scss', 'public/css');
 
 
+/*
   mix.pug('resources/assets/pug/coupon_admin/toppage.pug', 'resources/views/coupon_admin',{})
      .sass('resources/assets/sass/coupon_admin/toppage.scss', 'public/css')    
      .js('resources/assets/js/toppage.js', 'public/js');
+     */
+  mix.js('resources/assets/js/form_sample.js', 'public/js');
 

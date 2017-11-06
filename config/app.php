@@ -180,6 +180,9 @@ return [
         //DITest
         App\Providers\HumanServiceProvider::class,
 
+        //ViewComposerを使ってみる
+        App\Providers\HelloServiceProvider::class,
+
     ],
 
     /*

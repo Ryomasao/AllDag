@@ -1,0 +1,32 @@
+//- トップページ画面
+extends ./template/_layout.pug
+include ./components/_error.pug
+
+block contents
+    form(method="post",action="/form_sample")
+        span {{csrf_field()}}
+        h1 シンプルなPOST 
+        br
+        label(for="name") 好きなメンバー
+        select(name="name")
+            option あやね
+            option みりん
+            option りさ
+        +error('name')
+        br
+        label(for="beauty") 好きなところ
+        input(type="text" name="beauty")
+        +error('beauty')
+        br
+        label(for="request") やってほしいこと
+        input(type="text" name="request")
+        +error('request')
+        br
+        button PushMe
+
+    .result
+        span @isset($message)
+        p {{ $message }}
+        span @endisset
+    
+        

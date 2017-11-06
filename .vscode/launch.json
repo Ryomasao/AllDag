@@ -7,6 +7,12 @@
         {
             "type": "node",
             "request": "launch",
+            "name": "node Program",
+            "program": "${workspaceFolder}/resources/assets/js/form_sample.js"
+        },
+        {
+            "type": "node",
+            "request": "launch",
             "name": "Launch Program",
             "program": "${workspaceFolder}/node_modules/laravel-mix/setup/webpack.config.js",
             "args":["--watch","--progress", "--config=node_modules/laravel-mix/setup/webpack.config.js"]

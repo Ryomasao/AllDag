@@ -1,5 +1,3 @@
 {
-    "/js/toppage.js": "/js/toppage.js",
-    "/css/toppage.css": "/css/toppage.css",
-    "/resources/views/coupon_admin/toppage.blade.php": "/resources/views/coupon_admin/toppage.blade.php"
+    "/js/form_sample.js": "/js/form_sample.js"
 }

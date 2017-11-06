@@ -1,0 +1,4 @@
+mixin error(property)
+    span @if($errors->has('#{property}'))
+    span(style="color:red;") {{ $errors->first('#{property}') }}
+    span @endif
