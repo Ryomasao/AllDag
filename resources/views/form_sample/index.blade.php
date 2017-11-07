@@ -25,9 +25,31 @@
     <div class="result"><span>@isset($message)</span>
       <p>{{ $message }}</p><span>@endisset</span>
     </div>
-    <div class="box1" style="width:100px;height:100px;background:yellow;margin:10px;" @click="greet" v-bind:style="styleObject"></div>
-    <div class="box2" style="width:100px;height:100px;background:red;margin:10px;"></div>
-    <div class="box3" style="width:100px;height:100px;background:blue;margin:10px;"></div>
+    <div class="box1" @click="moveRight" v-bind:style="styleObject">あ</div>
+    <div class="box2" @click="sayhello" v-bind:style="styleObject">い</div>
+    <div class="box3"></div>
     <script src="/js/form_sample.js"></script>
+    <style>
+      .box1{
+          width:100px;
+          height:100px;
+          background:yellow;
+          margin:10px
+      }
+      
+      .box2{
+          width:100px;
+          height:100px;
+          background:red;
+          margin:10px
+      }
+      
+      .box3{
+          width:100px;
+          height:100px;
+          background:blue;
+          margin:10px
+      }
+    </style>
   </body>
 </html>

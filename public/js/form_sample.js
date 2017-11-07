@@ -60,51 +60,11 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ 	return __webpack_require__(__webpack_require__.s = 1);
 /******/ })
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__(1);
-
-
-/***/ }),
-/* 1 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
-
-
-
-var box1 = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
-    el: '.box1',
-    data: {
-        styleObject: {
-            background: 'purple',
-            transform: 'translateX(20px)'
-
-        }
-    },
-    methods: {
-        greet: function greet(event) {
-            console.log('Hello Wolrd');
-            console.log(event.target);
-            console.log(this);
-        },
-        moveRight: function moveRight(event) {
-            var element = event.target;
-        }
-    }
-
-});
-
-/***/ }),
-/* 2 */
 /***/ (function(module, exports) {
 
 var g;
@@ -129,6 +89,85 @@ try {
 
 module.exports = g;
 
+
+/***/ }),
+/* 1 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(2);
+
+
+/***/ }),
+/* 2 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
+
+
+
+function convertTranslate(value) {
+    return 'translate(' + value + 'px)';
+}
+
+var fuga = '10';
+
+function accessGlobalfuga(value) {
+    fuga = Number(fuga) + value;
+    return fuga + 'px';
+}
+
+var box1 = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
+    el: '.box1',
+    data: {
+        moveX: 0,
+        styleObject: {
+            color: 'red',
+            fontSize: '10px',
+            transform: 'translateX(0px)'
+        }
+    },
+    methods: {
+        moveRight: function moveRight(event) {
+            this.styleObject.fontSize = accessGlobalfuga(1);
+            this.moveX++;
+            this.styleObject.transform = this.convertTranslate(this.moveX);
+            console.log(this.styleObject.fontSize);
+            console.log(this.moveX);
+        },
+        convertTranslate: function convertTranslate(value) {
+            return 'translate(' + value + 'px)';
+        }
+    },
+    watch: {
+        transform: function transform(val) {
+            console.log(val);
+        }
+    }
+
+});
+
+var box2 = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
+    el: '.box2',
+    data: {
+        moveX: 100,
+        styleObject: {
+            color: 'white',
+            fontSize: '10px',
+            transform: 'translateX(0px)'
+        }
+    },
+    methods: {
+        sayhello: function sayhello(event) {
+            this.styleObject.fontSize = accessGlobalfuga(1);
+            console.log("hello");
+        }
+
+    }
+
+});
 
 /***/ }),
 /* 3 */
@@ -10697,7 +10736,7 @@ Vue$3.compile = compileToFunctions;
 
 module.exports = Vue$3;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2), __webpack_require__(4).setImmediate))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0), __webpack_require__(4).setImmediate))
 
 /***/ }),
 /* 4 */
@@ -10949,7 +10988,7 @@ exports.clearImmediate = clearImmediate;
     attachTo.clearImmediate = clearImmediate;
 }(typeof self === "undefined" ? typeof global === "undefined" ? this : global : self));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2), __webpack_require__(6)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0), __webpack_require__(6)))
 
 /***/ }),
 /* 6 */
